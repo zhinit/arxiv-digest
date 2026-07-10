@@ -23,6 +23,7 @@ Python 3.10+. No external dependencies (stdlib only).
 ```
 git clone <repo-url>
 cd arxiv-digest
+uv sync
 ```
 
 ## Configuration
