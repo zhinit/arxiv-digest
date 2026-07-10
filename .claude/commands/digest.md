@@ -7,8 +7,8 @@ select top + random picks, and present a curated reading list.
 
 Execute the Python pipeline to fetch and filter papers:
 
-```!
-cd ${CLAUDE_PROJECT_DIR} && source .venv/bin/activate && python -m src.main
+```
+cd ${CLAUDE_PROJECT_DIR} && .venv/bin/python -m src.main
 ```
 
 ## 2. Parse and summarize

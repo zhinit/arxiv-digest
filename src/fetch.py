@@ -8,6 +8,7 @@ from datetime import datetime, timedelta, timezone
 ARXIV_API_URL = "http://export.arxiv.org/api/query"
 MAX_RESULTS_PER_REQUEST = 2000
 REQUEST_DELAY = 3
+TOPICS_PER_QUERY = 10
 
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ARXIV_NS = "http://arxiv.org/schemas/atom"
@@ -96,9 +97,8 @@ def parse_response(xml_text: str) -> tuple[list[dict], int]:
     return papers, total
 
 
-def fetch_papers(topics: list[str], date_range: str) -> list[dict]:
-    query = build_query(topics, date_range)
-    all_papers = []
+def _fetch_query(query: str) -> list[dict]:
+    papers = []
     start = 0
 
     while True:
@@ -114,13 +114,33 @@ def fetch_papers(topics: list[str], date_range: str) -> list[dict]:
         with urllib.request.urlopen(url) as resp:
             xml_text = resp.read().decode("utf-8")
 
-        papers, total = parse_response(xml_text)
-        all_papers.extend(papers)
+        batch, total = parse_response(xml_text)
+        papers.extend(batch)
 
         start += MAX_RESULTS_PER_REQUEST
-        if start >= total or not papers:
+        if start >= total or not batch:
             break
 
         time.sleep(REQUEST_DELAY)
+
+    return papers
+
+
+def fetch_papers(topics: list[str], date_range: str) -> list[dict]:
+    seen_links = set()
+    all_papers = []
+
+    for i in range(0, len(topics), TOPICS_PER_QUERY):
+        chunk = topics[i : i + TOPICS_PER_QUERY]
+        query = build_query(chunk, date_range)
+        papers = _fetch_query(query)
+
+        for p in papers:
+            if p["link"] not in seen_links:
+                seen_links.add(p["link"])
+                all_papers.append(p)
+
+        if i + TOPICS_PER_QUERY < len(topics):
+            time.sleep(REQUEST_DELAY)
 
     return all_papers
