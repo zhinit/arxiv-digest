@@ -27,6 +27,13 @@
 
 - [[semantic-scholar]] — Semantic Scholar API: SPECTER2 embeddings, recommendations, citations
 
+## Claude Code Skills & Commands
+
+- [[claude-code-skills]] — Skills/commands overview: file format, locations, substitutions, invocation control, lifecycle
+- [[skill-frontmatter-reference]] — Complete YAML frontmatter field reference for SKILL.md
+- [[writing-effective-skills]] — Best practices: conciseness, descriptions, progressive disclosure, patterns, evaluation
+- [[skill-discovery-and-context]] — How skills are surfaced in the system prompt, context budgets, compaction behavior
+
 ## Reference Implementations
 
 - [[arxiv-sanity-lite-reference]] — Karpathy's TF-IDF + SVM recommender

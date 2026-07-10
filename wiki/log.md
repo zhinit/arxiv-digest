@@ -23,6 +23,21 @@
 
 ---
 
+## 2026-07-10 — Claude Code skills/commands research
+
+**Sources archived:**
+- claude-code-skills-official-docs.md — Official Anthropic docs: skill format, frontmatter, substitutions, invocation control, lifecycle, subagents
+- claude-code-skill-authoring-best-practices.md — Official Anthropic best practices: conciseness, descriptions, progressive disclosure, patterns, evaluation
+- claude-code-system-prompt-architecture.md — How Claude Code assembles its system prompt and surfaces skills
+
+**Wiki pages created:**
+- claude-code-skills — overview of skills/commands system
+- skill-frontmatter-reference — complete YAML frontmatter field reference
+- writing-effective-skills — authoring best practices and patterns
+- skill-discovery-and-context — system prompt assembly and context budgets
+
+---
+
 ## 2026-07-10
 
 **Research: how to build an arXiv curation tool**
@@ -51,3 +66,15 @@ Wiki pages created (11):
 - arxiv-sanity-lite-reference — reference implementation
 - flexible-arxiv-rss-reference — reference implementation
 - existing-tools — tool landscape and gap analysis
+
+---
+
+## 2026-07-10 — Wiki lint fixes
+
+- Fixed broken link: `[[flexible-arxiv-rss]]` → `[[flexible-arxiv-rss-reference]]` in arxiv-rss-feeds
+- Defined wiki page format in CLAUDE.md (title, lead, body with inline citations, See also, Last updated)
+- Standardized cross-reference sections to `## See also` across all 22 pages
+- Added `Last updated: 2026-07-10` to all pages
+- Added `(source: ...)` to uncited claims in bm25 (BM25L/BM25+), tfidf (limitation 1), keyword-search (weaknesses)
+- Removed separation-of-concerns violations: stripped "Recommended approach" language and project-specific config/cost/tech-stack from curation-pipeline; removed "Relevance to This Project" from flexible-arxiv-rss-reference; neutralized "Use for Curation" / "Which to Use" sections in arxiv-rss-feeds, semantic-scholar, arxiv-oai-pmh, arxiv-data-access; neutralized recommendation language in paper-ranking
+- Moved project-specific pipeline config, cost estimates, and tech stack to docs/pipeline-design.md

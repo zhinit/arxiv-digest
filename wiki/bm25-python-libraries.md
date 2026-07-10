@@ -67,4 +67,10 @@ Install: `pip install bm25s[full]`
 - **Elasticsearch**: Distributed, multi-tenant, need monitoring/dashboards,
   or non-BM25 retrieval modes.
 
-See also: [[bm25]], [[tokenization]], [[keyword-search]]
+## See also
+
+- [[bm25]]
+- [[tokenization]]
+- [[keyword-search]]
+
+Last updated: 2026-07-10

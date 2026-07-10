@@ -62,7 +62,9 @@ Results are generators — memory-efficient for large result sets.
 - Default `delay_seconds` respects arXiv rate limits
 - Enable DEBUG logging to inspect API calls
 
-## See Also
+## See also
 
 - [[arxiv-api]] — the underlying HTTP API
 - [[curation-pipeline]] — where arxiv.py fits in a digest tool
+
+Last updated: 2026-07-10

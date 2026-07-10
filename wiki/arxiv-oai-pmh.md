@@ -1,7 +1,7 @@
 # arXiv OAI-PMH
 
-The Open Archives Initiative Protocol for Metadata Harvesting. The preferred
-method for bulk metadata download or maintaining a local mirror.
+The Open Archives Initiative Protocol for Metadata Harvesting. Designed for
+bulk metadata download or maintaining a local mirror.
 (source: arxiv-oai-pmh.md)
 
 ## Endpoint
@@ -57,15 +57,9 @@ Resumption tokens expire daily. (source: arxiv-oai-pmh.md)
 
 (source: arxiv-oai-pmh.md, arxiv-bulk-data-access.md)
 
-## Use for Curation
-
-OAI-PMH is overkill for a daily digest tool — it's designed for bulk
-harvesting or maintaining a local mirror. For daily new papers, [[arxiv-rss-feeds]]
-or the [[arxiv-api]] are simpler. OAI-PMH becomes relevant if you want to
-build a local index of all papers in a category over time (e.g., to compute
-embeddings across the full corpus).
-
-## See Also
+## See also
 
 - [[arxiv-data-access]] — comparison of all access methods
 - [[arxiv-rss-feeds]] — lighter-weight daily feeds
+
+Last updated: 2026-07-10

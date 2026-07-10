@@ -13,6 +13,7 @@ TF-IDF(t, d) = TF(t, d) × IDF(t)
 ### Term Frequency (TF)
 Raw count of term t in document d. The more a term appears in a document, the
 more relevant that document is considered for that term.
+(source: tfidf-bm25-rag-guide.md)
 
 ### Inverse Document Frequency (IDF)
 ```
@@ -31,6 +32,7 @@ across the corpus. (source: tfidf-bm25-rag-guide.md)
 1. **No saturation**: Score grows linearly with term frequency. A term
    appearing 100 times gets 100× the weight of a single occurrence, which
    overstates the relevance of keyword-stuffed or repetitive documents.
+   (source: tfidf-bm25-rag-guide.md)
 
 2. **No document length normalization**: A 10,000-word document has more
    opportunity to contain a term than a 50-word abstract, but TF-IDF does
@@ -54,4 +56,9 @@ TF-IDF remains the basis for Lucene's scoring model, though modern versions
 use [[bm25]] by default. Still used directly in lightweight applications and
 as a feature in ML pipelines. (source: lucene-scoring.md)
 
-See also: [[keyword-search]], [[inverted-index]]
+## See also
+
+- [[keyword-search]]
+- [[inverted-index]]
+
+Last updated: 2026-07-10

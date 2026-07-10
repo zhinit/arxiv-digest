@@ -48,19 +48,15 @@ interests, ask it to rate relevance (e.g., 1–5 scale with justification).
 **Pros**: Understands nuanced criteria. Can explain why a paper is relevant.
 Can filter on subjective qualities ("novel approach" vs. "incremental").
 
-**Cons**: Expensive per paper. At ~$0.003/abstract (Claude Haiku on a short
-prompt), scoring 200 papers/day costs ~$0.60/day or ~$18/month. Slower.
-Non-deterministic.
+**Cons**: Expensive per paper. Slower. Non-deterministic.
 
-**Implementation**: Two-stage approach to control cost:
-1. Cheap pre-filter (TF-IDF or embeddings) cuts 200 papers to ~30 candidates
-2. LLM scores the 30 candidates with a structured prompt
+**Implementation**: A two-stage pattern controls cost — a cheap pre-filter
+(TF-IDF or embeddings) reduces the candidate set before LLM scoring runs on
+the survivors. (source: arxiv-sanity-lite.md)
 
-This reduces LLM cost by ~85% while keeping quality high on the long tail.
+## Multi-tier Pipeline
 
-## Hybrid Approach
-
-The practical architecture combines tiers:
+The tiers can be stacked into a pipeline:
 
 ```
 All new papers (RSS)
@@ -71,9 +67,9 @@ All new papers (RSS)
 ```
 
 Each tier is optional — a minimal tool can work with just Tier 1 (TF-IDF
-keywords), and you can add tiers incrementally.
+keywords), and tiers can be added incrementally.
 
-## See Also
+## See also
 
 - [[curation-pipeline]] — full pipeline architecture
 - [[arxiv-sanity-lite-reference]] — TF-IDF + SVM in practice
@@ -81,3 +77,5 @@ keywords), and you can add tiers incrementally.
 - [[bm25]] — BM25 ranking formula and parameters
 - [[keyword-search]] — lexical retrieval end-to-end
 - [[hybrid-retrieval]] — combining keyword and semantic search (RRF, fusion)
+
+Last updated: 2026-07-10

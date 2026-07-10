@@ -71,9 +71,11 @@ Feed-level: `<opensearch:totalResults>`, `<opensearch:startIndex>`,
 Omit version suffix for latest: `cond-mat/0207270`. Append `v{n}` for
 specific version: `cond-mat/0207270v1`. (source: arxiv-api-user-manual.md)
 
-## See Also
+## See also
 
 - [[arxiv-py]] — Python wrapper for this API
 - [[arxiv-rss-feeds]] — daily new-paper feeds (simpler for "what's new")
 - [[arxiv-oai-pmh]] — bulk metadata harvesting
 - [[arxiv-data-access]] — overview of all access methods
+
+Last updated: 2026-07-10

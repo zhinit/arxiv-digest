@@ -49,18 +49,17 @@ Runs on Linode Nanode 1 GB ($5/month). Indexes ~30K papers.
 
 Python, Flask, feedparser, scikit-learn, sqlitedict, numpy, SendGrid.
 
-## Lessons for This Project
+## Limitations
 
-1. **Abstract-only TF-IDF is good enough** for coarse topic matching
-2. **SVM on tags** is an effective personalization signal with minimal data
-3. **SQLite + pickle** is a viable storage strategy for single-user tools
-4. **Email digest** is a natural output format
+- No semantic understanding (vocabulary mismatch problem with TF-IDF)
+- No quality or novelty scoring
+- No explanation of why a paper was recommended
 
-The main gaps: no semantic understanding (vocabulary mismatch problem),
-no quality/novelty scoring, no explanation of why a paper was recommended.
-These are what LLM and embedding-based approaches add.
+(source: arxiv-sanity-lite.md)
 
-## See Also
+## See also
 
 - [[paper-ranking]] — comparison of ranking approaches
-- [[curation-pipeline]] — how to extend this architecture
+- [[curation-pipeline]] — pipeline architecture
+
+Last updated: 2026-07-10

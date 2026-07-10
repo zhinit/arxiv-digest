@@ -29,4 +29,9 @@ primary data structure. The Boolean model narrows candidate documents via the
 index before the scoring model (typically [[bm25]]) ranks them.
 (source: lucene-search-and-ranking-blaszyk.md)
 
-See also: [[keyword-search]], [[bm25]]
+## See also
+
+- [[keyword-search]]
+- [[bm25]]
+
+Last updated: 2026-07-10

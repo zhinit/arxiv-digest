@@ -56,4 +56,9 @@ route to the appropriate method.
 
 (source: keyword-search-implementation-guide.md)
 
-See also: [[bm25]], [[keyword-search]]
+## See also
+
+- [[bm25]]
+- [[keyword-search]]
+
+Last updated: 2026-07-10

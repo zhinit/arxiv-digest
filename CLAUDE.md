@@ -21,6 +21,16 @@ When new information arrives:
 primary-source research → `wiki/`;
 project decisions → `docs/`.
 
+## Wiki page format
+
+Every wiki page follows this structure:
+
+1. **Title** — `# Page Title` as the first line
+2. **Lead** — one-paragraph summary immediately after the title
+3. **Body** — content sections with inline `(source: filename.md)` citations
+4. **See also** — `## See also` section with `[[wiki-links]]` to related pages
+5. **Last updated** — date on the final line: `Last updated: YYYY-MM-DD`
+
 ## Commands
 
 Recurring workflows are slash commands defined in `.claude/commands/`:

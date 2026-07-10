@@ -45,20 +45,9 @@ Landscape of tools for discovering, filtering, and recommending arXiv papers.
 
 (source: awesome-arxiv.md)
 
-## Gap Analysis
+## See also
 
-What existing tools don't do well (and what this project should address):
-
-1. **Personalized daily digest as CLI output** — most tools are web apps or
-   newsletters, not command-line tools
-2. **LLM-based relevance scoring** — most use TF-IDF or embeddings; none
-   combine cheap pre-filtering with LLM scoring for nuanced relevance
-3. **Configurable interest profiles** — most require manual tagging; a config
-   file defining interests declaratively would be more ergonomic
-4. **Explain why** — most tools rank without explanation; an LLM can say
-   *why* a paper is interesting
-
-## See Also
-
-- [[curation-pipeline]] — the architecture this project will use
+- [[curation-pipeline]] — curation pipeline architecture
 - [[paper-ranking]] — ranking approaches compared
+
+Last updated: 2026-07-10

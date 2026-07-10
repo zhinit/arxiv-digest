@@ -33,4 +33,9 @@ lowercasing, or they lose their discriminative value.
   tokenization, stemming, and stopword removal as part of the index pipeline.
   (source: lucene-search-and-ranking-blaszyk.md)
 
-See also: [[keyword-search]], [[bm25-python-libraries]]
+## See also
+
+- [[keyword-search]]
+- [[bm25-python-libraries]]
+
+Last updated: 2026-07-10

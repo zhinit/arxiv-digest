@@ -37,17 +37,10 @@ Uses OAI-PMH interface (not RSS or search API). First run fetches past 5
 days. Subsequent runs get daily updates. Maintains up to 2 weeks of history.
 (source: flexible-arxiv-rss.md)
 
-## Relevance to This Project
+## See also
 
-Demonstrates a keyword-based filtering approach. The configuration model
-(include/exclude keywords + categories) is a useful pattern, though the C++
-implementation and nginx dependency are heavier than needed for a CLI tool.
-
-The key lesson: **category + keyword filtering is the minimum viable
-pipeline**. It removes the bulk of irrelevant papers before any ML scoring.
-
-## See Also
-
-- [[curation-pipeline]] — where keyword filtering fits
+- [[curation-pipeline]] — pipeline architecture
 - [[arxiv-oai-pmh]] — the data source it uses
 - [[arxiv-rss-feeds]] — lighter-weight alternative to OAI-PMH for daily papers
+
+Last updated: 2026-07-10

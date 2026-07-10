@@ -18,8 +18,8 @@ Synthesized from the approaches in [[arxiv-sanity-lite-reference]],
 
 **Goal**: Get today's new papers in categories of interest.
 
-**Recommended approach**: [[arxiv-rss-feeds]]. One HTTP request per category,
-returns all new papers with titles, abstracts, authors, categories.
+[[arxiv-rss-feeds]] provides one HTTP request per category, returning all new
+papers with titles, abstracts, authors, categories.
 
 - Parse with `feedparser` (Python)
 - Filter to `announce_type == "new"` (skip replacements/cross-lists)
@@ -46,84 +46,30 @@ This stage should be fast and local — no API calls or LLM inference.
 
 **Goal**: Score remaining candidates by relevance and quality.
 
-**Recommended approach**: LLM scoring with a structured prompt.
-
-Input per paper: title + abstract + categories.
-Prompt includes: user interest profile (topics, keywords, what makes a paper
-interesting to this user).
-Output: relevance score (1–5) + one-line justification.
-
-At ~30 candidates and ~$0.003/call (Haiku-class model on short prompt),
-this costs ~$0.09/day.
-
-**Alternative/supplement**: SPECTER2 embeddings from [[semantic-scholar]] for
-semantic similarity ranking without LLM cost. Good for a free tier.
-
+LLM scoring uses a structured prompt with the paper's title + abstract +
+categories and a user interest profile (topics, keywords, what makes a paper
+interesting). Output: relevance score (1–5) + one-line justification.
 (source: semantic-scholar-api.md)
+
+SPECTER2 embeddings from [[semantic-scholar]] provide an alternative for
+semantic similarity ranking without LLM cost.
 
 ### Stage 4: Output
 
 **Goal**: Render the top N papers as a readable digest.
 
 Formats:
-- **CLI/terminal** — default, richly formatted with title, score, reason,
+- **CLI/terminal** — richly formatted with title, score, reason,
   abstract snippet, arXiv link
 - **Markdown file** — for archiving or publishing
 - **Email** — via SendGrid or similar (as in arxiv-sanity-lite)
 
-## Configuration
-
-A user interest profile drives stages 2–3. Minimum viable config:
-
-```yaml
-categories:
-  - cs.AI
-  - cs.CL
-  - cs.LG
-
-keywords:
-  include:
-    - transformer
-    - reasoning
-    - retrieval augmented
-  exclude:
-    - survey
-    - benchmark
-
-interests: |
-  I'm interested in novel architectures for language model reasoning,
-  retrieval-augmented generation, and tool use in LLM agents. I prefer
-  papers with experiments over pure theory. I don't care about benchmark
-  papers or survey papers unless they introduce a new taxonomy.
-
-top_n: 10
-```
-
-`categories` and `keywords` drive stage 2. `interests` drives the LLM
-prompt in stage 3. `top_n` caps the output.
-
-## Cost Estimates
-
-| Tier | Monthly cost | Quality |
-|------|-------------|---------|
-| RSS + keywords only | Free | Coarse, misses novel framing |
-| + TF-IDF/embeddings | Free (local) or ~$0 (S2 API) | Better semantic matching |
-| + LLM scoring (Haiku) | ~$3/month | Nuanced, with explanations |
-| + LLM scoring (Sonnet) | ~$15/month | Highest quality judgments |
-
-## Tech Stack
-
-Minimal dependencies:
-- `arxiv` (PyPI) — API wrapper
-- `feedparser` — RSS parsing
-- `anthropic` or `openai` — LLM scoring (optional)
-- `scikit-learn` — TF-IDF (optional)
-- `pyyaml` — config parsing
-
-## See Also
+## See also
 
 - [[arxiv-rss-feeds]] — stage 1 data source
 - [[arxiv-py]] — stage 1 alternative (search queries)
 - [[paper-ranking]] — stage 3 approaches in depth
-- [[existing-tools]] — what's already out there
+- [[existing-tools]] — landscape of arXiv curation tools
 - [[arxiv-data-access]] — all access methods compared
+
+Last updated: 2026-07-10

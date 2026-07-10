@@ -41,22 +41,18 @@ Each item includes:
 
 (source: arxiv-rss-feeds.md)
 
-## Use for Curation
+## Comparison with Other Access Methods
 
-RSS is the natural ingestion path for a daily digest tool:
+RSS is a push-style daily batch: everything new in a category, once per day.
+The [[arxiv-api]] is pull-style: search queries against the full corpus.
+[[arxiv-oai-pmh]] is designed for bulk harvesting or maintaining local mirrors.
+(source: arxiv-rss-feeds.md)
 
-1. Subscribe to categories of interest
-2. Parse the feed (feedparser in Python, or any RSS library)
-3. Filter on `arxiv:announce_type` — typically want `new` only, skip
-   `replacement` and `cross` unless tracking updates
-4. Extract abstract from `description` field for downstream scoring
-
-Compared to the [[arxiv-api]]: RSS is push-style (daily batch), the API is
-pull-style (search queries). RSS is better for "everything new in cs.AI
-today"; the API is better for "papers about transformers by author X."
-
-## See Also
+## See also
 
 - [[arxiv-api]] — query-based search
 - [[arxiv-oai-pmh]] — bulk harvesting with selective sets
-- [[flexible-arxiv-rss]] — open-source tool that adds filtering on top of arXiv RSS/OAI
+- [[flexible-arxiv-rss-reference]] — open-source tool that adds filtering on top of arXiv RSS/OAI
+- [[arxiv-data-access]] — overview of all access methods
+
+Last updated: 2026-07-10

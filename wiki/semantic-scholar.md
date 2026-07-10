@@ -32,26 +32,13 @@ Available through the Academic Graph API. (source: semantic-scholar-api.md)
 
 ## Recommendations API
 
-Given a seed paper ID, returns similar papers. Can be used to expand from
-known-good papers to find related work.
+Given a seed paper ID, returns similar papers. Operates paper→paper (not
+profile→papers). (source: semantic-scholar-api.md)
 
-## Use for Curation
-
-Semantic Scholar complements arXiv in two ways:
-
-1. **Embeddings for ranking** — fetch SPECTER2 embeddings for candidate papers,
-   compute cosine similarity against a "seed set" of papers you like. More
-   semantic than TF-IDF, catches papers with different vocabulary but similar
-   ideas.
-
-2. **Citation signals** — citation count and velocity as quality proxies
-   (with the caveat that new papers have no citations yet).
-
-The Recommendations API is less useful for a daily digest (it's paper→paper,
-not profile→papers), but good for seeding an interest profile.
-
-## See Also
+## See also
 
 - [[paper-ranking]] — ranking approaches compared
-- [[curation-pipeline]] — where Semantic Scholar fits
+- [[curation-pipeline]] — pipeline architecture
 - [[arxiv-data-access]] — arXiv's own access methods
+
+Last updated: 2026-07-10

@@ -20,6 +20,7 @@ methods, and still the standard first-stage retriever in production systems.
    (source: keyword-search-implementation-guide.md)
 
 4. **Ranking** — sort candidates by score, return top-k.
+   (source: keyword-search-implementation-guide.md)
 
 ## Strengths
 
@@ -37,13 +38,12 @@ methods, and still the standard first-stage retriever in production systems.
 - No semantic understanding ("car" won't match "automobile")
 - Sensitive to tokenization choices
 
-## When to Use
-
-- Exact identifiers, error codes, technical jargon
-- Known-item retrieval (user knows what they're looking for)
-- First-stage retrieval in a [[hybrid-retrieval]] pipeline
-- Lightweight applications where neural models are overkill
-
 (source: keyword-search-implementation-guide.md)
 
-See also: [[bm25]], [[tokenization]], [[hybrid-retrieval]]
+## See also
+
+- [[bm25]]
+- [[tokenization]]
+- [[hybrid-retrieval]]
+
+Last updated: 2026-07-10
