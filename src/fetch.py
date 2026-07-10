@@ -18,7 +18,9 @@ OPENSEARCH_NS = "http://a9.com/-/spec/opensearch/1.1/"
 def parse_date_range(date_range: str) -> tuple[str, str]:
     now = datetime.now(timezone.utc)
 
-    if date_range == "past week":
+    if date_range == "past day":
+        start = now - timedelta(days=1)
+    elif date_range == "past week":
         start = now - timedelta(days=7)
     elif date_range == "past month":
         start = now - timedelta(days=30)
@@ -31,7 +33,7 @@ def parse_date_range(date_range: str) -> tuple[str, str]:
     else:
         raise ValueError(
             f"Invalid date_range: {date_range!r}. "
-            "Use 'past week', 'past month', or 'YYYYMMDD-YYYYMMDD'."
+            "Use 'past day', 'past week', 'past month', or 'YYYYMMDD-YYYYMMDD'."
         )
 
     return start.strftime("%Y%m%d0000"), now.strftime("%Y%m%d2359")

@@ -56,7 +56,7 @@ writes accepted terms back to `config.json`.
 ### Standalone
 
 ```
-python -m src.main [config.json]
+uv run python -m src.main [config.json]
 ```
 
 Outputs scored papers as JSON. Summaries are not included (those are generated
@@ -65,7 +65,7 @@ by Claude during `/digest`).
 ## Tests
 
 ```
-python -m pytest tests/
+uv run python -m pytest tests/
 ```
 
 ## Project structure

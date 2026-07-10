@@ -56,7 +56,7 @@
     "text generation",
     "image generation"
   ],
-  "date_range": "past week",
-  "top_n": 5,
-  "random_n": 5
+  "date_range": "past day",
+  "top_n": 3,
+  "random_n": 3
 }
